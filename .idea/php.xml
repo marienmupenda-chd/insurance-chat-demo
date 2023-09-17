@@ -234,6 +234,7 @@
       <path value="$PROJECT_DIR$/customer/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/customer/vendor/symfony/polyfill-php83" />
       <path value="$PROJECT_DIR$/customer/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/agent/vendor/livewire/livewire" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
