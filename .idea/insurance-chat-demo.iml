@@ -8,14 +8,14 @@
       <sourceFolder url="file://$MODULE_DIR$/agent/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/agent/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/agent/tests/Unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/customer/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/customer/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/customer/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
       <sourceFolder url="file://$MODULE_DIR$/customer/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/customer/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/customer/tests/Unit" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/agent/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/agent/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/agent/vendor/dflydev/dot-access-data" />
@@ -128,6 +128,8 @@
       <excludeFolder url="file://$MODULE_DIR$/agent/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/agent/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/agent/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/agent/storage/app" />
+      <excludeFolder url="file://$MODULE_DIR$/agent/storage/framework" />
       <excludeFolder url="file://$MODULE_DIR$/customer/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/customer/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/customer/vendor/dflydev/dot-access-data" />
@@ -156,6 +158,7 @@
       <excludeFolder url="file://$MODULE_DIR$/customer/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/customer/vendor/league/flysystem-local" />
       <excludeFolder url="file://$MODULE_DIR$/customer/vendor/league/mime-type-detection" />
+      <excludeFolder url="file://$MODULE_DIR$/customer/vendor/livewire/livewire" />
       <excludeFolder url="file://$MODULE_DIR$/customer/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/customer/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/customer/vendor/myclabs/deep-copy" />

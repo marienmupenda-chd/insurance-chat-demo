@@ -123,6 +123,7 @@
       <path value="$PROJECT_DIR$/agent/vendor/phpoption/phpoption" />
       <path value="$PROJECT_DIR$/agent/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/agent/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/agent/vendor/livewire/livewire" />
       <path value="$PROJECT_DIR$/customer/vendor/psr/clock" />
       <path value="$PROJECT_DIR$/customer/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/customer/vendor/psr/http-factory" />
@@ -216,6 +217,7 @@
       <path value="$PROJECT_DIR$/customer/vendor/league/config" />
       <path value="$PROJECT_DIR$/customer/vendor/sebastian/version" />
       <path value="$PROJECT_DIR$/customer/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/customer/vendor/livewire/livewire" />
       <path value="$PROJECT_DIR$/customer/vendor/spatie/flare-client-php" />
       <path value="$PROJECT_DIR$/customer/vendor/spatie/laravel-ignition" />
       <path value="$PROJECT_DIR$/customer/vendor/spatie/backtrace" />
@@ -234,7 +236,6 @@
       <path value="$PROJECT_DIR$/customer/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/customer/vendor/symfony/polyfill-php83" />
       <path value="$PROJECT_DIR$/customer/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/agent/vendor/livewire/livewire" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
