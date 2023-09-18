@@ -41,10 +41,10 @@ class ChatsComponent extends Component
     {
         $response = Http::acceptJson()
             ->withHeaders([
-                'Authorization' => 'Bearer ' . env('AUTH_TOKEN'),
+                'Authorization' => 'Bearer ' . env('CHAT_AUTH_TOKEN'),
             ])
             ->asJson()
-            ->post('http://ensurance-ms.test/api/app/chats/create', [
+            ->post(env('CHAT_APP_URL'), [
                 'message' => $this->message,
             ]);
 
