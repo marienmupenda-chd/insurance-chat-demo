@@ -18,9 +18,11 @@
         <input type="text" wire:model="message" class="form-control mb-3 mt-3" placeholder="Type your message here...">
         <button wire:click="sendMessage" class="btn btn-primary">Send</button>
     </div>
-    <div>
+    <div class="mt-3">
+        Subscribed : <code>{{ $subscribed }}</code><br>
         Status : {{ $httpStatus  }}<br>
         Message: {{ $httpMessage }}<br>
-        Data: <pre>{{ json_encode($data, JSON_PRETTY_PRINT) }}</pre>
+        Data:
+        <code>{{ json_encode($data, JSON_PRETTY_PRINT) }}</code>
     </div>
 </div>

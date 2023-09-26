@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', ChatsComponent::class)->name('chats');
+Route::get('{chatId}', ChatsComponent::class)->name('chats.show');

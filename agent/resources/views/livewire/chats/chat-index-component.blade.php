@@ -53,8 +53,10 @@
     <div>
         <h3> Chat Log</h3>
         New Chat :
-        <pre>{{ json_encode($newChat, JSON_PRETTY_PRINT) }}</pre>
-        {{-- Message:
+        <code>
+
+            <pre>{{ json_encode($newChat, JSON_PRETTY_PRINT) }}</pre>
+        </code> {{-- Message:
          <pre>{{ json_encode($message, JSON_PRETTY_PRINT) }}</pre>--}}
     </div>
     <div>
@@ -62,7 +64,9 @@
         Status : {{ $httpStatus  }}<br>
         Message: {{ $httpMessage }}<br>
         Data:
-        <pre>{{ json_encode($data, JSON_PRETTY_PRINT) }}</pre>
+        <code>
+            <pre>{{ json_encode($data, JSON_PRETTY_PRINT) }}</pre>
+        </code>
     </div>
 
 </div>

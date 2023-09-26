@@ -11,28 +11,40 @@ use Livewire\Component;
 class ChatsComponent extends Component
 {
     public bool $newChat = false;
-    /**
-     * @var null
-     */
+
     public ?array $chat;
     public ?string $message = "Hello, I need help";
     public int $httpStatus;
     public ?string $httpMessage;
     public array $data;
-    public string $channel = 'chats.01hb8mp8aykjnmxby48s7bw9vb';
-    public string $event = 'ChatEvent';
+    public ?string $subscribed = null;
+    public ?string $chatId;
 
+    protected $listeners = [
+        'refresh' => '$refresh',
+    ];
 
-    /*    public $listeners = [
-            "echo:chats,ChatEvent" => 'newChat',
-            'refresh' => '$refresh',
-        ];*/
-
-    public function mount(): void
+    public function mount(string $chatId = null): void
     {
         $this->newChat = false;
         $this->chat = null;
-        $this->listeners["echo:{$this->channel},{$this->event}"] = 'newMessage';
+
+        if ($chatId) {
+            $this->chatId = $chatId;
+            $this->subscribed = "Channel: chats.{$chatId}, Event: ChatEvent";
+        }
+
+    }
+
+    public function getListeners(): array
+    {
+        if (!$this->chatId) {
+            return [];
+        }
+        return [
+            "echo:chats.{$this->chatId},ChatEvent" => 'newMessage',
+            'refresh' => '$refresh',
+        ];
     }
 
     public function newMessage($data): void
@@ -62,12 +74,10 @@ class ChatsComponent extends Component
         if ($response->successful()) {
             $this->data = $response->json()['data'];
 
-            $this->channel = $this->data['channel'];
-            $this->event = $this->data['event'];
+            $this->chatId = $this->data['chat_id'];
 
-            $this->listeners["echo:{$this->channel},{$this->event}"] = 'newMessage';
 
-            //  dd($this->getListeners());
+            $this->redirect(route('chats.show', [$this->chatId]));
         }
     }
 }
