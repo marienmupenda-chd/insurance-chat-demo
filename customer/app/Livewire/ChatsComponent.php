@@ -19,17 +19,25 @@ class ChatsComponent extends Component
     public int $httpStatus;
     public ?string $httpMessage;
     public array $data;
+    public string $channel = 'chats.01hb8mp8aykjnmxby48s7bw9vb';
+    public string $event = 'ChatEvent';
+
+
+    /*    public $listeners = [
+            "echo:chats,ChatEvent" => 'newChat',
+            'refresh' => '$refresh',
+        ];*/
 
     public function mount(): void
     {
         $this->newChat = false;
         $this->chat = null;
+        $this->listeners["echo:{$this->channel},{$this->event}"] = 'newMessage';
     }
 
-    #[On('echo:chats,ChatEvent')]
-    public function notifyNewChat(): void
+    public function newMessage($data): void
     {
-        $this->newChat = true;
+        dd($data);
     }
 
     public function render(): Factory|\Illuminate\Foundation\Application|View|Application
@@ -53,6 +61,13 @@ class ChatsComponent extends Component
 
         if ($response->successful()) {
             $this->data = $response->json()['data'];
+
+            $this->channel = $this->data['channel'];
+            $this->event = $this->data['event'];
+
+            $this->listeners["echo:{$this->channel},{$this->event}"] = 'newMessage';
+
+            //  dd($this->getListeners());
         }
     }
 }

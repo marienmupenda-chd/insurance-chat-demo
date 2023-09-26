@@ -9,7 +9,7 @@
                         <div>
                             <h5>{{ $newChat['message']['body']??null }}</h5>
                             <p>
-                                {{ $newChat['chat']['status']??null }} - {{ count($newChat['chat']['messages']??null) }}
+                                {{ $newChat['chat']['status']??null }} - {{ count($newChat['chat']['messages']??[]) }}
                                 messages
                             </p>
                         </div>
