@@ -49,7 +49,7 @@ class ChatsComponent extends Component
 
     public function newMessage($data): void
     {
-        dd($data);
+        $this->chat = $data['chat'];
     }
 
     public function render(): Factory|\Illuminate\Foundation\Application|View|Application
