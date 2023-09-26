@@ -52,6 +52,10 @@
     <hr>
     <div>
         <h3> Chat Log</h3>
+        Old Chat :
+        <code>
+            <pre>{{ json_encode($chat, JSON_PRETTY_PRINT) }}</pre>
+        </code>
         New Chat :
         <code>
 

@@ -15,6 +15,8 @@ class ChatsComponent extends Component
     public int $httpStatus;
     public string $httpMessage;
     public ?array $data;
+    public ?string $chatId = null;
+    public array $chat;
 
     public function render(): View|\Illuminate\Foundation\Application|Factory|Application
     {
@@ -24,10 +26,23 @@ class ChatsComponent extends Component
 
     public function getListeners(): array
     {
-        return [
+        $listeners = [
             "echo:chats,ChatEvent" => 'newChat',
             'refresh' => '$refresh',
         ];
+
+        if ($this->chatId) {
+            $listeners["echo:chats.{$this->chatId},ChatEvent"] = 'newMessage';
+        }
+
+        return $listeners;
+    }
+
+    public function newMessage($data): void
+    {
+
+        dd($data);
+        $this->chat = $data['chat'];
     }
 
     public function newChat($data): void
@@ -35,7 +50,7 @@ class ChatsComponent extends Component
         $this->newChat = $data;
     }
 
-    public function openChat($chat_id): void
+    public function openChat($chatId): void
     {
 
         $response = Http::acceptJson()
@@ -43,7 +58,7 @@ class ChatsComponent extends Component
                 'Authorization' => 'Bearer ' . env('CHAT_AUTH_TOKEN'),
             ])
             ->asJson()
-            ->post(env('CHAT_APP_URL') . "/chats/{$chat_id}/open", [
+            ->post(env('CHAT_APP_URL') . "/chats/{$chatId}/open", [
                 'message' => $this->message
             ]);
 
@@ -52,7 +67,29 @@ class ChatsComponent extends Component
 
         if ($response->successful()) {
             $this->data = $response->json();
+            $this->redirect(route('chats.show', [$chatId]));
         }
+    }
+
+
+    public function sendMessage(): void
+    {
+        $url = env('CHAT_APP_URL') . "/chats/{$this->chatId}/send";
+        $response = Http::acceptJson()
+            ->withHeaders([
+                'Authorization' => 'Bearer ' . env('CHAT_AUTH_TOKEN'),
+            ])
+            ->asJson()
+            ->post($url,
+                [
+                    'message' => $this->message,
+                ]);
+
+        $this->httpStatus = $response->status();
+        $this->httpMessage = $response->body();
+
+
+        $this->data = $response->json();
     }
 
 }

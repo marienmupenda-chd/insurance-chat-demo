@@ -18,7 +18,7 @@ class ChatsComponent extends Component
     public ?string $httpMessage;
     public ?array $data;
     public ?string $subscribed = null;
-    public ?string $chatId;
+    public ?string $chatId = null;
 
     protected $listeners = [
         'refresh' => '$refresh',
@@ -69,6 +69,7 @@ class ChatsComponent extends Component
                 [
                     'message' => $this->message,
                 ]);
+
 
         $this->httpStatus = $response->status();
         $this->httpMessage = $response->body();
