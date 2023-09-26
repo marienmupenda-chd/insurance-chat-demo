@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card p-3">
-                <h2>New Chat</h2>
+                <h2>All chats</h2>
                 <div>
                     <div class="d-flex justify-content-between">
                         <div>
@@ -32,19 +32,24 @@
 
                 <h2>Ongoing Chat</h2>
 
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <h5>{{ $message['body']??null }}</h5>
-                        {{--   <p>{{ $message->message }}</p>--}}
-                    </div>
-                    <div>
-                        <small>{{ $message['created_at']??null}}</small>
-                    </div>
-                </div>
+                <ul class="list-group">
+                    @foreach($chat['messages']??[] as $message)
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h5>{{ $message['body']}}</h5>
+                                    <p>{{ $message['user_id']}}</p>
+                                </div>
+                                <div>
+                                    <small>{{ $message['created_at'] }}</small>
+                                </div>
+                            </div>
+                    @endforeach
+                </ul>
                 <div class="mt-3">
                     <input type="text" wire:model="message" class="form-control mb-3 mt-3"
                            placeholder="Type your message here...">
-                    <button class="btn btn-primary">Reply</button>
+                    <button wire:click="sendMessage" class="btn btn-primary">Reply</button>
                 </div>
             </div>
         </div>

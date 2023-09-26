@@ -40,8 +40,6 @@ class ChatsComponent extends Component
 
     public function newMessage($data): void
     {
-
-        dd($data);
         $this->chat = $data['chat'];
     }
 
