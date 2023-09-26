@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\ChatsComponent;
+use App\Livewire\Chats\ChatsComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +15,3 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', ChatsComponent::class)->name('chats');
-Route::get('/chats', ChatsComponent::class)->name('chats');
