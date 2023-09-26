@@ -3,10 +3,10 @@
   <component name="PHPUnit">
     <option name="directories">
       <list>
-        <option value="$PROJECT_DIR$/agent/tests/Unit" />
-        <option value="$PROJECT_DIR$/agent/tests/Feature" />
         <option value="$PROJECT_DIR$/customer/tests/Unit" />
         <option value="$PROJECT_DIR$/customer/tests/Feature" />
+        <option value="$PROJECT_DIR$/agent/tests/Unit" />
+        <option value="$PROJECT_DIR$/agent/tests/Feature" />
       </list>
     </option>
   </component>
