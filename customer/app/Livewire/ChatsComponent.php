@@ -16,7 +16,7 @@ class ChatsComponent extends Component
     public ?string $message = "Hello, I need help";
     public int $httpStatus;
     public ?string $httpMessage;
-    public array $data;
+    public ?array $data;
     public ?string $subscribed = null;
     public ?string $chatId;
 
@@ -59,25 +59,28 @@ class ChatsComponent extends Component
 
     public function sendMessage(): void
     {
+        $url = $this->chatId ? env('CHAT_APP_URL') . "/chats/{$this->chatId}/send" : env('CHAT_APP_URL') . "/chats/create";
         $response = Http::acceptJson()
             ->withHeaders([
                 'Authorization' => 'Bearer ' . env('CHAT_AUTH_TOKEN'),
             ])
             ->asJson()
-            ->post(env('CHAT_APP_URL'), [
-                'message' => $this->message,
-            ]);
+            ->post($url,
+                [
+                    'message' => $this->message,
+                ]);
 
         $this->httpStatus = $response->status();
         $this->httpMessage = $response->body();
 
         if ($response->successful()) {
-            $this->data = $response->json()['data'];
 
-            $this->chatId = $this->data['chat_id'];
+            $this->data = optional($response->json())['data'];
 
-
-            $this->redirect(route('chats.show', [$this->chatId]));
+            if ($this->data) {
+                $this->chatId = $this->data['chat_id'];
+                $this->redirect(route('chats.show', [$this->chatId]));
+            }
         }
     }
 }
