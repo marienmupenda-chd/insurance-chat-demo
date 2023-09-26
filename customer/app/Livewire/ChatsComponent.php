@@ -15,7 +15,7 @@ class ChatsComponent extends Component
      * @var null
      */
     public ?array $chat;
-    public ?string $message = null;
+    public ?string $message = "Hello, I need help";
     public int $httpStatus;
     public ?string $httpMessage;
     public array $data;
